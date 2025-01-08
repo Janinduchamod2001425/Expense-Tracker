@@ -74,7 +74,7 @@ const TransactionPage = () => {
 
   return (
     <div className="h-screen max-w-4xl mx-auto flex flex-col items-center">
-      <p className="md:text-4xl text-2xl lg:text-4xl font-bold text-center relative z-50 mb-4 mr-4 bg-gradient-to-r from-pink-600 via-indigo-500 to-pink-400 inline-block text-transparent bg-clip-text">
+      <p className="md:text-4xl text-2xl lg:text-4xl font-bold text-center relative z-50 mb-4 mr-4 bg-gradient-to-r from-green-800 via-green-500 via-yellow-400 to-green-300 inline-block text-transparent bg-clip-text">
         Update this transaction
       </p>
       <form
@@ -91,7 +91,7 @@ const TransactionPage = () => {
               Transaction
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="rounded-xl appearance-none block w-full bg-green-100 text-green-700 border border-green-200 py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-400"
               id="description"
               name="description"
               type="text"
@@ -112,7 +112,7 @@ const TransactionPage = () => {
             </label>
             <div className="relative">
               <select
-                className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className="appearance-none block w-full bg-green-100 text-green-700 border border-green-200 rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-400"
                 id="paymentType"
                 name="paymentType"
                 onChange={handleInputChange}
@@ -143,7 +143,7 @@ const TransactionPage = () => {
             </label>
             <div className="relative">
               <select
-                className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className="appearance-none block w-full bg-green-100 text-green-700 border border-green-200 rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-400"
                 id="category"
                 name="category"
                 onChange={handleInputChange}
@@ -174,7 +174,7 @@ const TransactionPage = () => {
               Amount($)
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="appearance-none block w-full bg-green-100 text-green-700 border border-green-200 rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-400"
               id="amount"
               name="amount"
               type="number"
@@ -195,7 +195,7 @@ const TransactionPage = () => {
               Location
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              className="appearance-none block w-full bg-green-100 text-green-700 border border-green-200 rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-400"
               id="location"
               name="location"
               type="text"
@@ -217,8 +217,7 @@ const TransactionPage = () => {
               type="date"
               name="date"
               id="date"
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border  rounded py-[11px] px-4 mb-3 leading-tight focus:outline-none
-						 focus:bg-white"
+              className="appearance-none block w-full bg-green-100 text-green-700 border border-green-200 rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-400"
               placeholder="Select date"
               value={formData.date}
               onChange={handleInputChange}
@@ -227,10 +226,11 @@ const TransactionPage = () => {
         </div>
         {/* SUBMIT BUTTON */}
         <button
-          className="text-white font-bold w-full rounded px-4 py-2 bg-gradient-to-br
-          from-pink-500 to-pink-500 hover:from-pink-600 hover:to-pink-600"
+          className="text-white font-bold w-full rounded-xl px-4 py-2 bg-gradient-to-br
+    from-green-500 to-yellow-400 hover:from-green-600 hover:to-yellow-500
+    disabled:opacity-70 disabled:cursor-not-allowed"
           type="submit"
-          disabled={loadingUpdate}
+          disabled={loading}
         >
           {loadingUpdate ? "Updating..." : "Update Transaction"}
         </button>

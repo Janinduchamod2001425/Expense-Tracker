@@ -1,4 +1,5 @@
 import User from "../models/user.model.js";
+import Transaction from "../models/transaction.model.js";
 import bcrypt from "bcryptjs";
 
 const userResolver = {
@@ -22,8 +23,8 @@ const userResolver = {
 
         const hashedPassword = await bcrypt.hash(password, salt);
 
-        const boyProfilePic = `https://robohash.org/${username}.png`;
-        const girlProfilePic = `https://robohash.org/${username}.png`;
+        const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${username}`;
+        const girlProfilePic = `https://avatar.iran.liara.run/public/girl?username=${username}`;
 
         const newuser = await User({
           username,
@@ -92,6 +93,18 @@ const userResolver = {
       } catch (error) {
         console.error("Error in user query: ", error);
         throw new Error(error.message || "Error getting user");
+      }
+    },
+  },
+
+  User: {
+    transactions: async (parent) => {
+      try {
+        const transactions = await Transaction.find({ userId: parent._id });
+        return transactions;
+      } catch (error) {
+        console.log("Error in user.transaction resolver : ", error);
+        throw new Error(error.message || "Internal server error");
       }
     },
   },

@@ -6,6 +6,8 @@ const userTypeDef = `#graphql
         password: String!
         profilePicture: String
         gender: String!
+        transactions: [Transaction!] # ! - means nullable values are allowed
+
     }
 
     type Query {

@@ -12,12 +12,12 @@ import toast from "react-hot-toast";
 
 const categoryColorMap = {
   saving: "from-green-700 to-green-400",
-  expense: "from-pink-800 to-pink-600",
-  investment: "from-blue-700 to-blue-400",
+  expense: "from-yellow-200 to-yellow-100",
+  investment: "from-lime-500 to-lime-300",
   // Add more categories and corresponding color classes as needed
 };
 
-const Card = ({ transaction }) => {
+const Card = ({ transaction, authUser }) => {
   let { category, amount, location, date, paymentType, description } =
     transaction;
   const cardClass = categoryColorMap[category];
@@ -84,7 +84,7 @@ const Card = ({ transaction }) => {
         <div className="flex justify-between items-center">
           <p className="text-xs text-black font-extrabold">{formattedDate}</p>
           <img
-            src={"https://tecdn.b-cdn.net/img/new/avatars/2.webp"}
+            src={authUser.profilePicture}
             className="h-8 w-8 border rounded-full"
             alt=""
           />
