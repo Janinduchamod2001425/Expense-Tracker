@@ -1,4 +1,3 @@
-import { users } from "../dummyData/data.js";
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 
@@ -23,8 +22,8 @@ const userResolver = {
 
         const hashedPassword = await bcrypt.hash(password, salt);
 
-        const boyProfilePic = `https://avatar.iran.iran.liara.run/public/boy?username=${username}`;
-        const girlProfilePic = `https://avatar.iran.iran.liara.run/public/girl?username=${username}`;
+        const boyProfilePic = `https://robohash.org/${username}.png`;
+        const girlProfilePic = `https://robohash.org/${username}.png`;
 
         const newuser = await User({
           username,
