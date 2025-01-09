@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { GET_TRANSACTION } from "../graphql/queries/transaction.query";
 import { UPDATE_TRANSACTION } from "../graphql/mutations/transaction.mutation";
 import toast from "react-hot-toast";
@@ -9,6 +9,7 @@ import TransactionFormSkeleton from "../components/skeletons/TransactionFormSkel
 
 const TransactionPage = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const { loading, data } = useQuery(GET_TRANSACTION, {
     variables: { id: id },
@@ -45,6 +46,7 @@ const TransactionPage = () => {
         },
       });
       toast.success("Transaction updated successfully");
+      navigate("/");
     } catch (error) {
       toast.error(error.message);
     }
@@ -91,7 +93,7 @@ const TransactionPage = () => {
               Transaction
             </label>
             <input
-              className="rounded-xl appearance-none block w-full bg-green-100 text-green-700 border border-green-200 py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-400"
+              className="font-bold rounded-xl appearance-none block w-full bg-green-100 text-green-700 border border-green-200 py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-400"
               id="description"
               name="description"
               type="text"
@@ -112,7 +114,7 @@ const TransactionPage = () => {
             </label>
             <div className="relative">
               <select
-                className="appearance-none block w-full bg-green-100 text-green-700 border border-green-200 rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-400"
+                className="font-bold appearance-none block w-full bg-green-100 text-green-700 border border-green-200 rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-400"
                 id="paymentType"
                 name="paymentType"
                 onChange={handleInputChange}
@@ -143,7 +145,7 @@ const TransactionPage = () => {
             </label>
             <div className="relative">
               <select
-                className="appearance-none block w-full bg-green-100 text-green-700 border border-green-200 rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-400"
+                className="font-bold appearance-none block w-full bg-green-100 text-green-700 border border-green-200 rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-400"
                 id="category"
                 name="category"
                 onChange={handleInputChange}
@@ -152,6 +154,8 @@ const TransactionPage = () => {
                 <option value={"saving"}>Saving</option>
                 <option value={"expense"}>Expense</option>
                 <option value={"investment"}>Investment</option>
+                <option value={"donation"}>Donation</option>
+                <option value={"health"}>Health</option>
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                 <svg
@@ -174,7 +178,7 @@ const TransactionPage = () => {
               Amount($)
             </label>
             <input
-              className="appearance-none block w-full bg-green-100 text-green-700 border border-green-200 rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-400"
+              className="font-bold appearance-none block w-full bg-green-100 text-green-700 border border-green-200 rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-400"
               id="amount"
               name="amount"
               type="number"
@@ -195,7 +199,7 @@ const TransactionPage = () => {
               Location
             </label>
             <input
-              className="appearance-none block w-full bg-green-100 text-green-700 border border-green-200 rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-400"
+              className="font-bold appearance-none block w-full bg-green-100 text-green-700 border border-green-200 rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-400"
               id="location"
               name="location"
               type="text"
@@ -217,7 +221,7 @@ const TransactionPage = () => {
               type="date"
               name="date"
               id="date"
-              className="appearance-none block w-full bg-green-100 text-green-700 border border-green-200 rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-400"
+              className="font-bold appearance-none block w-full bg-green-100 text-green-700 border border-green-200 rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-400"
               placeholder="Select date"
               value={formData.date}
               onChange={handleInputChange}
@@ -226,7 +230,7 @@ const TransactionPage = () => {
         </div>
         {/* SUBMIT BUTTON */}
         <button
-          className="text-white font-bold w-full rounded-xl px-4 py-2 bg-gradient-to-br
+          className="text-white font-bold w-full rounded-xl px-4 py-3 bg-gradient-to-br
     from-green-500 to-yellow-400 hover:from-green-600 hover:to-yellow-500
     disabled:opacity-70 disabled:cursor-not-allowed"
           type="submit"

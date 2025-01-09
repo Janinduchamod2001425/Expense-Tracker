@@ -1,6 +1,6 @@
 import { FaLocationDot } from "react-icons/fa6";
-import { BsCardText } from "react-icons/bs";
-import { MdOutlinePayments } from "react-icons/md";
+import { FaIdCard } from "react-icons/fa";
+import { MdPayments } from "react-icons/md";
 import { FaSackDollar } from "react-icons/fa6";
 import { FaTrash } from "react-icons/fa";
 import { HiPencilAlt } from "react-icons/hi";
@@ -11,10 +11,11 @@ import { DELETE_TRANSACTION } from "../graphql/mutations/transaction.mutation";
 import toast from "react-hot-toast";
 
 const categoryColorMap = {
-  saving: "from-green-700 to-green-400",
-  expense: "from-yellow-200 to-yellow-100",
-  investment: "from-lime-500 to-lime-300",
-  // Add more categories and corresponding color classes as needed
+  saving: "from-green-700 to-green-400", // Green gradient for saving
+  expense: "from-yellow-400 to-yellow-800", // Yellow gradient for expense
+  investment: "from-lime-500 to-lime-300", // Green-Yellow mix gradient for investment
+  donation: "from-orange-500 to-orange-300", // Orange gradient for donation
+  health: "from-teal-200 to-teal-900", // Teal gradient for health (greenish blue)
 };
 
 const Card = ({ transaction, authUser }) => {
@@ -62,23 +63,23 @@ const Card = ({ transaction, authUser }) => {
             </Link>
           </div>
         </div>
-        <p className="text-white flex items-center gap-1">
-          <BsCardText className="mr-2" />
-          <span className="font-bold text-gray-300">Description:</span>{" "}
+        <p className="text-gray-900 flex items-center gap-1 font-mono">
+          <FaIdCard className="mr-2" />
+          <span className="font-bold text-gray-900">Description:</span>{" "}
           {description}
         </p>
-        <p className="text-white flex items-center gap-1">
-          <MdOutlinePayments className="mr-2" />
-          <span className="font-bold text-gray-300">Payment Type:</span>{" "}
+        <p className="text-gray-900 flex items-center gap-1 font-mono">
+          <MdPayments className="mr-2" />
+          <span className="font-bold text-gray-900">Payment Type:</span>{" "}
           {paymentType}
         </p>
-        <p className="text-white flex items-center gap-1">
+        <p className="text-gray-900 flex items-center gap-1 font-mono">
           <FaSackDollar className="mr-2" />
-          <span className="font-bold text-gray-300">Amount:</span> ${amount}
+          <span className="font-bold text-gray-900">Amount:</span> ${amount}
         </p>
-        <p className="text-white flex items-center gap-1">
+        <p className="text-gray-900 flex items-center gap-1 font-mono">
           <FaLocationDot className="mr-2" />
-          <span className="font-bold text-gray-300">Location:</span>{" "}
+          <span className="font-bold text-gray-900">Location:</span>{" "}
           {location || "Not Available"}
         </p>
         <div className="flex justify-between items-center">

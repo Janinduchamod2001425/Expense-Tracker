@@ -23,7 +23,7 @@ const HomePage = () => {
   });
 
   const [chartData, setChartData] = useState({
-    labels: ["Saving", "Expense", "Investment"],
+    labels: ["Saving", "Expense", "Investment", "donation", "health"],
     datasets: [
       {
         label: "$",
@@ -50,14 +50,20 @@ const HomePage = () => {
 
       categories.forEach((category) => {
         if (category === "saving") {
-          backgroundColors.push("rgba(75, 192, 192)");
-          borderColors.push("rgba(75, 192, 192)");
+          backgroundColors.push("rgba(75, 192, 192)"); // Teal
+          borderColors.push("rgba(75, 192, 192)"); // Teal
         } else if (category === "expense") {
           backgroundColors.push("rgba(255, 206, 86)"); // Yellow
           borderColors.push("rgba(255, 206, 86)"); // Yellow
-        } else if (category == "investment") {
+        } else if (category === "investment") {
           backgroundColors.push("rgba(173, 255, 47)"); // Green-Yellow mix (Lime)
           borderColors.push("rgba(173, 255, 47)"); // Green-Yellow mix (Lime)
+        } else if (category === "donation") {
+          backgroundColors.push("rgba(255, 159, 64)"); // Orange
+          borderColors.push("rgba(255, 159, 64)"); // Orange
+        } else if (category === "health") {
+          backgroundColors.push("rgba(102, 205, 170)"); // Medium Aquamarine (Greenish)
+          borderColors.push("rgba(102, 205, 170)"); // Medium Aquamarine (Greenish)
         }
       });
 
