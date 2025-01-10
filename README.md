@@ -33,6 +33,12 @@ SESSION_SECRET=mysecret123
 
 #### Run the project
 
+#### development
 ```bash
 npm run dev
+```
+
+#### production
+```bash
+npm start
 ```
