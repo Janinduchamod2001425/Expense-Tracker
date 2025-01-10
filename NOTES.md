@@ -1,4 +1,5 @@
-# Special Notes about GraphQL
+# Special Notes about GraphQL 
+<img src="https://go-skill-icons.vercel.app/api/icons?i=graphql" />
 
 ### graphql package =>
 
