@@ -1,4 +1,4 @@
-# 💸 SpendWise Expense Tracker
+# 💸 **SpendWise** - Expense Tracker
 
 **SpendWise** is a comprehensive and secure expense tracker application designed to help users effectively manage and visualize their financial data. Built using modern web technologies, it offers an intuitive interface, robust features, and high-performance functionality.
 
