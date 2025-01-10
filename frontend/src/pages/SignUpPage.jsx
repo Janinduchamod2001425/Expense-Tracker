@@ -26,6 +26,7 @@ const SignUpPage = () => {
           input: signUpData,
         },
       });
+      toast.success("Account created successfully! Track your expenses now!");
     } catch (error) {
       console.error("Error:", error);
       toast.error(error.message);
